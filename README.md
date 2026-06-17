@@ -1,14 +1,14 @@
 # Phase 10 Student Handoff
 
-This folder is a standalone student deployment handoff for the Phase 10 Appointments Scheduler capstone.
+This repository is a standalone student deployment handoff for the Phase 10 Appointments Scheduler capstone.
 
-It is designed to become its own student-facing repository later. A student and an AI assistant should be able to start here, understand what the package is, extract the correct production zip, deploy it into the student's own AWS account, validate the CloudFront/ALB/EKS path, and tear everything down safely.
+It is designed so a student and an AI assistant can start here, understand what the package is, extract the correct production zip, deploy it into the student's own AWS account, validate the CloudFront/ALB/EKS path, and tear everything down safely.
 
 This is not an instructor live AWS account folder. It should not contain real account IDs, ARNs, passwords, kubeconfig files, generated secrets, live endpoints, or raw CloudFront origin-header values.
 
 ## What This Folder Is
 
-`student-handoff/` is the learning wrapper around the deployable Phase 10 package.
+This repository is the learning wrapper around the deployable Phase 10 package.
 
 It contains:
 

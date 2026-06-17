@@ -17,7 +17,7 @@ This file is intentionally written so the deployment can be explained and perfor
 
 ## 1. Handoff Package Selection
 
-- [ ] Confirm the working folder is `student-handoff/`.
+- [ ] Confirm the working folder is the root of this student handoff repository.
 - [ ] Confirm the deployable production package exists:
 
 ```text
@@ -174,7 +174,7 @@ Optional helper reference: `scripts/03-validate-templates.sh`.
 
 - [ ] Choose one source provider: CodeCommit if available, or GitHub/CodeStar connection if CodeCommit is unavailable.
 - [ ] Confirm the source repository root is the contents of `appointments-app/`.
-- [ ] Do not push the entire `student-handoff/` folder as the app source.
+- [ ] Do not push this entire handoff repository as the app source.
 - [ ] Confirm the source branch matches the CloudFormation parameter, usually `main`.
 - [ ] Confirm buildspecs are at the source root under `buildspecs/`.
 - [ ] Confirm the Dockerfile is at the source root.
