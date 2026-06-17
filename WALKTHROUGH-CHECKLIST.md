@@ -52,7 +52,7 @@ Optional helper reference: `scripts/01-extract-packages.sh`.
 ## 2. Account And Cost Gate
 
 - [ ] Confirm AWS CLI profile name.
-- [ ] Confirm Region, recommended `us-west-1` for this package unless the instructor intentionally changes it.
+- [ ] Confirm Region, recommended `us-west-1` for this package unless the class/demo owner intentionally changes it.
 - [ ] Confirm a budget or billing alarm exists.
 - [ ] Review `CURRENT-COST-ESTIMATE.md`.
 - [ ] Confirm the student understands this creates billable resources, including EKS worker nodes, NAT Gateway, RDS, ALB, public IPv4 addresses, CodeBuild minutes, ECR storage, CloudWatch Logs, S3 artifacts, and optional CloudFront.

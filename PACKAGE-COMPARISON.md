@@ -15,10 +15,10 @@ Lab baseline
 
 | Package | Role | Student Action |
 | --- | --- | --- |
-| `packages/phase-10-appointments-app-lab.zip` | Original lab-compatible baseline | Use for comparison or instructor-directed lab replay only. |
+| `packages/phase-10-appointments-app-lab.zip` | Original lab-compatible baseline | Use for comparison or lab replay only. |
 | `packages/phase-10-appointments-app.zip` | Production-style own-account package | Use for the student AWS account deployment. |
 
-The production handoff package is scrubbed for student reuse. Its default owner/repository tag examples use `Student` and `student-appointments-scheduler`, and the handoff archives do not contain instructor-specific owner text.
+The production handoff package is scrubbed for student reuse. Its default owner/repository tag examples use `Student` and `student-appointments-scheduler`, and the handoff archives do not contain personal owner text.
 
 The production handoff also includes `NETWORK-SECURITY-REVIEW.md` so students can validate the final CloudFront, ALB, EKS, pod, and RDS boundary after deployment instead of treating the architecture as a black box.
 
@@ -27,9 +27,9 @@ The production handoff also includes `NETWORK-SECURITY-REVIEW.md` so students ca
 | Metric | Lab Package | Production Package |
 | --- | ---: | ---: |
 | Entries | 42 | 64 |
-| Zip size | 30,605 bytes | 155,980 bytes |
+| Zip size | 30,547 bytes | 155,980 bytes |
 | Integrity check | `unzip -t` passed | `unzip -t` passed |
-| SHA-256 | `0c89df3907f8818174e14ea4fc4b4546e2549110af061f4ff5337b558c65b4b8` | `c540c8eb801cdff1534b53f1dd9a2e2ab91229e9bae1680e1eee5e6fcb04f605` |
+| SHA-256 | `2f8b113c715f8d945d2eec7b2cb69a2ffe2de0074e09de9b6e92e71ef5004809` | `c540c8eb801cdff1534b53f1dd9a2e2ab91229e9bae1680e1eee5e6fcb04f605` |
 
 The production package is larger because it adds CloudFormation, IAM documentation, deployment/runbook guidance, RDS bootstrap assets, CloudFront HTTPS support, ALB hardening support, teardown planning, and container security changes.
 

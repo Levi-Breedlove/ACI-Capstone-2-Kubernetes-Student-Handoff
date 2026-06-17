@@ -2,7 +2,7 @@
 
 This document is a student-safe network security review checklist for the Phase 10 production handoff package.
 
-It intentionally does not contain instructor account IDs, ARNs, live endpoints, secrets, kubeconfig contents, or raw CloudFront origin-header values. Replace placeholders with values from your own AWS account when running read-only checks.
+It intentionally does not contain live account IDs, ARNs, live endpoints, secrets, kubeconfig contents, or raw CloudFront origin-header values. Replace placeholders with values from your own AWS account when running read-only checks.
 
 ## Intended Demo Architecture
 
