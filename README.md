@@ -14,7 +14,7 @@ It contains:
 
 - The exact student production zip to deploy.
 - The original lab zip for comparison only.
-- A human walkthrough.
+- A walkthrough.
 - An AI-friendly deployment checklist.
 - A package comparison document.
 - A cost estimate.
@@ -28,7 +28,7 @@ The production zip contains the app source, CloudFormation, Kubernetes manifests
 
 ## Student Repository Disposition
 
-When this folder becomes its own repository, it should be treated as the student-facing control center for the Kubernetes production-style demo. It is not the full historical capstone repository, and it is not the live instructor AWS account. It is a clean handoff repo that explains how to take the packaged application, deploy it into a student's own AWS account, validate it, explain it, and tear it down.
+This repository should be treated as the student-facing control center for the Kubernetes production-style demo. It is not the full historical capstone repository, and it is not a live AWS account folder. It is a clean handoff repo that explains how to take the packaged application, deploy it into a student's own AWS account, validate it, explain it, and tear it down.
 
 The intended standalone repository name is:
 
@@ -126,7 +126,7 @@ Students should also be able to state what the demo does not claim. It does not 
 | Path | Purpose |
 | --- | --- |
 | `packages/phase-10-appointments-app.zip` | The production own-account deployment package. This is the package students deploy. |
-| `packages/phase-10-appointments-app-lab.zip` | The original lab-compatible package. Use it for comparison or instructor-directed lab replay only. |
+| `packages/phase-10-appointments-app-lab.zip` | The original lab-compatible package. Use it for comparison or lab replay only. |
 | `WALKTHROUGH.md` | Narrative guide that explains the staged deployment path. |
 | `WALKTHROUGH-CHECKLIST.md` | Primary AI/student checklist for booting the production zip in a student AWS account. It does not depend on the shell scripts. |
 | `PACKAGE-COMPARISON.md` | Security, IAM, resource, and architecture comparison between the lab zip and production zip. |
@@ -149,7 +149,7 @@ Use this zip only for comparison:
 packages/phase-10-appointments-app-lab.zip
 ```
 
-The production package copy in this handoff is student-scrubbed. Its default owner/repository tag examples use `Student` and `student-appointments-scheduler`, and the handoff archives do not contain instructor-specific owner text.
+The production package copy in this handoff is student-scrubbed. Its default owner/repository tag examples use `Student` and `student-appointments-scheduler`, and the handoff archives do not contain personal owner text.
 
 ## Lab Zip Security Differences
 
