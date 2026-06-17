@@ -1,10 +1,10 @@
-# Phase 10 Student Handoff
+# [ACI-Capstone-2-Kubernetes-Student-Handoff](https://github.com/Levi-Breedlove/ACI-Capstone-2-Kubernetes-Student-Handoff/tree/main)
 
 This repository is a standalone student deployment handoff for the Phase 10 Appointments Scheduler capstone.
 
 It is designed so a student and an AI assistant can start here, understand what the package is, extract the correct production zip, deploy it into the student's own AWS account, validate the CloudFront/ALB/EKS path, and tear everything down safely.
 
-This is not an instructor live AWS account folder. It should not contain real account IDs, ARNs, passwords, kubeconfig files, generated secrets, live endpoints, or raw CloudFront origin-header values.
+This is not a live AWS account folder. It should not contain real account IDs, ARNs, passwords, kubeconfig files, generated secrets, live endpoints, or raw CloudFront origin-header values.
 
 ## What This Folder Is
 
