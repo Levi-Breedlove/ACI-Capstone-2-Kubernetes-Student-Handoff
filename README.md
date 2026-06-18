@@ -79,7 +79,7 @@ The lab zip is the baseline comparison artifact. It preserves the original Lab 1
 
 ### Tier 2: Simple Real-World Hosting
 
-For a real small scheduling app, Kubernetes may be unnecessary. A simpler service such as Elastic Beanstalk, ECS Fargate, App Runner, Lambda/API Gateway, or even a small EC2 deployment could be cheaper and easier to operate.
+For a real small scheduling app, Kubernetes may be unnecessary. A simpler service such as Elastic Beanstalk, ECS Fargate, App Runner, a serverless Lambda/API Gateway design, or even a small EC2 deployment could be cheaper and easier to operate.
 
 The benefit of this tier is lower cost and simpler operations. The trade-off is that it does not teach Kubernetes scheduling, pod health, ALB target groups, ingress controllers, private node networking, rolling deploys, or readiness behavior.
 
