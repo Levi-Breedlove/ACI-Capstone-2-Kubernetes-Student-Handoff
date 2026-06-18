@@ -24,6 +24,22 @@ packages/phase-10-appointments-app-lab.zip
 scripts/
 ```
 
+The production package is also self-contained after extraction. Inside the extracted production package, use these package-contained files as the deployment source of truth:
+
+```text
+README.md
+DEPLOYMENT-RUNBOOK.md
+DEPLOYMENT-TASKS.md
+AI-ASSISTED-DEPLOYMENT-GUIDE.md
+DEPLOYMENT.md
+NETWORK-SECURITY-REVIEW.md
+CLEANUP.md
+iac/cloudformation/README.md
+iac/cloudformation/post-deploy.md
+```
+
+The outer handoff repository explains the student path from the lab zip to the production zip. The package-contained runbook and task tracker exist so `packages/phase-10-appointments-app.zip` can later become its own standalone deployment repository without relying on the outer walkthrough files.
+
 The production deployment package is:
 
 ```text
@@ -37,6 +53,14 @@ packages/phase-10-appointments-app-lab.zip
 ```
 
 Use the production package for personal AWS account deployment. Use the lab package only for comparison or lab-specific testing.
+
+Current package expectation:
+
+- `packages/phase-10-appointments-app.zip` includes `DEPLOYMENT-RUNBOOK.md`.
+- `packages/phase-10-appointments-app.zip` includes `DEPLOYMENT-TASKS.md`.
+- `DEPLOYMENT-RUNBOOK.md` gives the full student deployment path.
+- `DEPLOYMENT-TASKS.md` is the unchecked execution tracker for a fresh student deployment.
+- Do not mark package task items complete unless the student deployment has actually produced the matching evidence.
 
 ## Architecture
 
@@ -196,20 +220,21 @@ Follow the walkthrough in order:
 
 1. Run local preflight checks.
 2. Extract packages to `/tmp`.
-3. Create or validate the local parameter file outside the repo.
-4. Validate CloudFormation templates.
-5. Prepare the source repository.
-6. Create the main stack only after explicit approval.
-7. Install the AWS Load Balancer Controller only after the EKS cluster exists.
-8. Create Kubernetes secrets without printing secret values.
-9. Bootstrap RDS from inside the cluster.
-10. Approve the first pipeline deployment only after prerequisites are complete.
-11. Validate ALB, pods, target health, app health, RDS behavior, and the CloudFront-only checkpoint.
-12. Harden the ALB origin path so app traffic is reachable through CloudFront only.
-13. Validate non-root runtime/security context and ECR scan results.
-14. Run teardown planning and cleanup after the demo, including the CloudFront companion stack and SSM origin-header parameter.
+3. Read extracted package `DEPLOYMENT-RUNBOOK.md` and `DEPLOYMENT-TASKS.md`.
+4. Create or validate the local parameter file outside the repo.
+5. Validate CloudFormation templates.
+6. Prepare the source repository.
+7. Create the main stack only after explicit approval.
+8. Install the AWS Load Balancer Controller only after the EKS cluster exists.
+9. Create Kubernetes secrets without printing secret values.
+10. Bootstrap RDS from inside the cluster.
+11. Approve the first pipeline deployment only after prerequisites are complete.
+12. Validate ALB, pods, target health, app health, RDS behavior, and the CloudFront-only checkpoint.
+13. Harden the ALB origin path so app traffic is reachable through CloudFront only.
+14. Validate non-root runtime/security context and ECR scan results.
+15. Run teardown planning and cleanup after the demo, including the CloudFront companion stack and SSM origin-header parameter.
 
-Do not skip phases. If guidance conflicts with `WALKTHROUGH.md`, update the docs or document the conflict before proceeding.
+Do not skip phases. If guidance conflicts with `WALKTHROUGH.md`, `WALKTHROUGH-CHECKLIST.md`, `DEPLOYMENT-RUNBOOK.md`, or `DEPLOYMENT-TASKS.md`, update the docs or document the conflict before proceeding.
 
 ## Repository Hygiene
 
