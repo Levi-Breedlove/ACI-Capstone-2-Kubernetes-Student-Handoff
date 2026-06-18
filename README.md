@@ -73,6 +73,18 @@ This is not end-to-end TLS. CloudFront handles the browser-facing HTTPS layer. C
 
 This handoff is useful because it lets students compare several deployment tiers.
 
+Before comparing tiers, keep the traffic progression clear. The original lab baseline was HTTP-first and did not include CloudFront:
+
+```text
+Browser -> HTTP -> ALB or lab load balancer path -> HTTP -> Kubernetes pods
+```
+
+The current controlled demo adds CloudFront as the browser-facing HTTPS layer while keeping the origin and pod hops HTTP:
+
+```text
+Browser -> HTTPS -> CloudFront -> HTTP -> ALB -> HTTP -> Kubernetes pods
+```
+
 ### Tier 1: Lab Completion Package
 
 The lab zip is the baseline comparison artifact. It preserves the original Lab 10 assumptions and is useful for showing where the project started. It is not the preferred artifact for a clean student AWS account deployment because it contains lab-oriented assumptions.
