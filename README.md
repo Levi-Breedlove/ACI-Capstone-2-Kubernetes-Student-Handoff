@@ -1,10 +1,10 @@
-# [ACI-Capstone-2-Kubernetes-Student-Handoff](https://github.com/Levi-Breedlove/ACI-Capstone-2-Kubernetes-Student-Handoff/tree/main)
+# [ACI-Capstone-2-Kubernetes-Student-Handoff](https://github.com/Levi-Breedlove/ACI-Capstone-2-Kubernetes-Student-Handoff)
 
 This repository is a standalone student deployment handoff for the Phase 10 Appointments Scheduler capstone.
 
 It is designed so a student and an AI assistant can start here, understand what the package is, extract the correct production zip, deploy it into the student's own AWS account, validate the CloudFront/ALB/EKS path, and tear everything down safely.
 
-This is not a live AWS account folder. It should not contain real account IDs, ARNs, passwords, kubeconfig files, generated secrets, live endpoints, or raw CloudFront origin-header values.
+This is not a live AWS account folder. It should not contain real account IDs, ARNs, passwords, kubeconfig files, generated secrets, live endpoints, IP addresses, or raw CloudFront origin-header values.
 
 ## What This Folder Is
 
@@ -87,7 +87,15 @@ Browser -> HTTPS -> CloudFront -> HTTP -> ALB -> HTTP -> Kubernetes pods
 
 ### Tier 1: Lab Completion Package
 
-The lab zip is the baseline comparison artifact. It preserves the original Lab 10 assumptions and is useful for showing where the project started. It is not the preferred artifact for a clean student AWS account deployment because it contains lab-oriented assumptions.
+The lab zip is the baseline comparison artifact:
+
+```text
+packages/phase-10-appointments-app-lab.zip
+```
+
+It preserves the original Lab 10 assumptions and is useful for showing where the project started. It is not the preferred artifact for a clean student AWS account deployment because it contains lab-oriented assumptions.
+
+At this tier, students should notice that the lab package is useful for comparison or lab replay, but it does not include the full production CloudFormation, CloudFront HTTPS companion stack, ALB origin hardening flow, or final network security review path. It is the baseline, not the deployment target.
 
 ### Tier 2: Simple Real-World Hosting
 
@@ -141,7 +149,7 @@ Students should also be able to state what the demo does not claim. It does not 
 | `packages/phase-10-appointments-app-lab.zip` | The original lab-compatible package. Use it for comparison or lab replay only. |
 | `WALKTHROUGH.md` | Narrative guide that explains the staged deployment path. |
 | `WALKTHROUGH-CHECKLIST.md` | Primary AI/student checklist for booting the production zip in a student AWS account. It does not depend on the shell scripts. |
-| `PACKAGE-COMPARISON.md` | Security, IAM, resource, and architecture comparison between the lab zip and production zip. |
+| `PACKAGE-COMPARISON.md` | Package trade-off comparison between the lab zip and production zip. |
 | `CURRENT-COST-ESTIMATE.md` | Approximate hourly cost model for the demo architecture. |
 | `NETWORK-SECURITY-REVIEW.md` | Read-only checklist for validating CloudFront, ALB, EKS, pod, RDS, and public IPv4 exposure. |
 | `AGENTS.md` | Safety and workflow instructions for AI assistants working inside this folder. |
@@ -224,6 +232,32 @@ Start with these files in order:
 
 The checklist is the best control file for an AI assistant. It includes the exact production zip path, extraction target, source root, template paths, approval gates, validation checks, and teardown criteria.
 
+## Recommended Tooling Setup
+
+If using Codex or another AI coding agent for AWS guidance, install Agent Toolkit for AWS before deployment:
+
+```text
+https://docs.aws.amazon.com/agent-toolkit/latest/userguide/quick-start.html
+```
+
+For Codex, AWS documents:
+
+```bash
+codex plugin marketplace add aws/agent-toolkit-for-aws
+```
+
+Then launch Codex and use `/plugins` to install `aws-core`.
+
+Install `cfn-lint` for local CloudFormation validation before stack creation:
+
+```bash
+python3 -m pip install cfn-lint
+# or on macOS:
+brew install cfn-lint
+```
+
+The walkthrough runs `cfn-lint` before AWS `cloudformation validate-template`.
+
 ## Optional Helper Scripts
 
 The scripts in `scripts/` can speed up repeated demos, but the walkthrough checklist should still be used to understand and approve each step.
@@ -233,7 +267,7 @@ The scripts in `scripts/` can speed up repeated demos, but the walkthrough check
 | `00-preflight.sh` | Local tool, account, and safety checks. |
 | `01-extract-packages.sh` | Extracts production and lab zips under `/tmp`. |
 | `02-create-parameters.sh` | Helps create a local CloudFormation parameter file outside the repo. |
-| `03-validate-templates.sh` | Validates CloudFormation templates. |
+| `03-validate-templates.sh` | Runs `cfn-lint` when installed, then AWS `validate-template`. |
 | `04-prepare-codecommit-source.sh` | Helps prepare CodeCommit source when CodeCommit is available. |
 | `05-create-main-stack.sh` | Creates the main stack after explicit approval. |
 | `06-install-alb-controller.sh` | Installs AWS Load Balancer Controller after the stack exists. |
@@ -256,6 +290,7 @@ Do not run a script just because it exists. For any script that creates, updates
 - Do not push this whole handoff folder as the app source repository.
 - Push only the extracted `appointments-app/` contents as the CodeCommit/GitHub app source root.
 - Keep `PipelineDeployMode=ManualApproval` for first launch.
+- Run local `cfn-lint` and AWS `validate-template` before stack creation.
 - Tear down promptly after a demo.
 
 ## Source Provider Note

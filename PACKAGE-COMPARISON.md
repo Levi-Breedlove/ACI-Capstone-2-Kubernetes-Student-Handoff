@@ -27,9 +27,9 @@ The production handoff also includes `NETWORK-SECURITY-REVIEW.md` so students ca
 | Metric | Lab Package | Production Package |
 | --- | ---: | ---: |
 | Entries | 42 | 64 |
-| Zip size | 30,547 bytes | 155,980 bytes |
+| Zip size | 30,547 bytes | 156,535 bytes |
 | Integrity check | `unzip -t` passed | `unzip -t` passed |
-| SHA-256 | `2f8b113c715f8d945d2eec7b2cb69a2ffe2de0074e09de9b6e92e71ef5004809` | `c540c8eb801cdff1534b53f1dd9a2e2ab91229e9bae1680e1eee5e6fcb04f605` |
+| SHA-256 | `2f8b113c715f8d945d2eec7b2cb69a2ffe2de0074e09de9b6e92e71ef5004809` | `ffb5b55f423a8b901ba9af79ecf6d8f88a42a6aeb87a71323464775b99e63c89` |
 
 The production package is larger because it adds CloudFormation, IAM documentation, deployment/runbook guidance, RDS bootstrap assets, CloudFront HTTPS support, ALB hardening support, teardown planning, and container security changes.
 

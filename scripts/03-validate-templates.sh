@@ -15,7 +15,7 @@ fi
 
 if command -v cfn-lint >/dev/null 2>&1; then
   echo "Running cfn-lint..."
-  cfn-lint -i W1030 E3691 W1011 W3005 -- "$MAIN_TEMPLATE"
+  cfn-lint -i W1030 W1011 -- "$MAIN_TEMPLATE"
   cfn-lint "$CLOUDFRONT_TEMPLATE"
 else
   echo "cfn-lint not installed; skipping local lint."
